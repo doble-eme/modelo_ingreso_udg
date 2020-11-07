@@ -12,3 +12,5 @@ El modelo utilizado es un modelo de aprendizaje supervisado, conocido como Regre
 - [Sklearn](https://scikit-learn.org)
 
 Este repositorio contiene los aarchivos Excel (`.xlsx`) con los datos primarios y los Jupyter Notebooks con el código utilizado para realizar el análisis.
+
+## Obtención de los Datos
