@@ -28,8 +28,14 @@ def predict():
 
     prediction = model.predict(input_variables)[0] # making prediction
 
+    #if statement to determine if the probability is high or low according to the prediction result
+    if prediction == 0:
+        result = 'Probabilidad baja'
+    elif prediction == 1:
+        result = 'Probabilidad alta'
 
-    return render_template('index.html', prediction_text='Predicción: {}'.format(prediction)) # rendering the predicted result
+    return render_template('index.html', prediction_text=result) # rendering the predicted result on the page
+
 
 if __name__ == "__main__":
     app.run(debug=True)
