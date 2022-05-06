@@ -11,20 +11,32 @@
   </head>
 
   <body>
-    <div class="login">
-	    <h1>Predicción de Posibilidades de Ingreso a la UDG</h1>
-        <!-- Input for receiving query for the ML model -->
-        <form action="{{ url_for('predict')}}"method="post">
-          <input type="number" name="CALENDARIO" placeholder="Calendario (A=1, B=2)" required="required" />
-          <input type="float" name="PUNTAJE_MINIMO" placeholder="Puntaje mínimo sumando puntaje de preparatoria + examen" required="required" />
-          <input type="float" name="CUPO" placeholder="Cupo disponible para la carrera en número de estudiantes" required="required" />
-          <input type="float" name="ADMITIDOS" placeholder="Número de alumnos admitidos para la carrera en el último calendario" required="required" />
-          <input type="float" name="ASPIRANTES" placeholder="Número de alumnos aspirantes a la carrera en el último calendario" required="required" />
-          <button type="submit" class="btn btn-primary btn-block btn-large">Obtener predicción</button>
-        </form>
-        <br>
-        <br>
-        {{ prediction_text }}
-    </div>
+    <h1>Predicción de Posibilidades de Ingreso a la UDG</h1>
+    <form class="form-inline" method="POST" action="{{ url_for('select_value') }}">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">Selecciona la carrera de interés (CALENDARIO - CENTRO - CARRERA)</span>
+                    <select name="seleccion_carrera" class="selectpicker form-control">
+                        {% for carrera in carreras %}
+                        <option value = "{{ carrera.CALENDARIO }},
+                                         {{ carrera.PUNTAJE_MINIMO }},
+                                         {{ carrera.CUPO }},
+                                         {{ carrera.ADMITIDOS }},
+                                         {{ carrera.ASPIRANTES }}"
+                                         SELECTED>
+                                         {{ carrera.CALENDARIO }} -
+                                         {{ carrera.CENTRO }} -
+                                         {{ carrera.CARRERA }}
+                        </option>
+                        {% endfor %}
+                    </select>
+            </div>
+            <button type="submit" class="btn btn-default">Obtener predicción</button>
+        </div>
+    </form>
+    {{ prediction_text }}
+    <form method="POST" action="/">
+        <button type="submit" class="btn btn-default">Obtener nueva predicción</button>
+    </form>
   </body>
 </html>
