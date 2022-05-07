@@ -15,7 +15,7 @@ def index():
     '''
     Reads data from csv file
     '''
-    with open('.data/PuntajesMinimos_last.csv') as csv_file:
+    with open('data/PuntajesMinimos_last.csv') as csv_file:
         data = csv.reader(csv_file, delimiter=',')
         carreras = []
         for row in data:
