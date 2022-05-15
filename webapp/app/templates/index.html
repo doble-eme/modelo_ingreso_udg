@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Predicción Posibilidades de Ingreso UDG</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+
+    <div class="header">
+      <a href="./" class="logo">PredictUDG</a>
+      <div class="header-right">
+        <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> 
+        <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a> 
+        <a href="#about"><i class="fa fa-solid fa-info"></i> About</a>
+      </div>
+    </div>
+
+
+    <h1 style="font-size:3vw">Predicción de Posibilidades de Ingreso a la UDG</h1>
+    <form class="form-inline" method="POST" action="{{ url_for('select_value') }}">
+        <div class="form-group">
+          <span class="input-group-addon" style="font-size:2vw">Selecciona la carrera de interés</span>
+                <br>
+                <p style="font-size:1vw"> CALENDARIO (A=1, B=2) - CENTRO - CARRERA</p>
+            <div class="input-group">
+                    <select name="seleccion_carrera" class="selectpicker form-control">
+                        {% for carrera in carreras %}
+                        <option value = "{{ carrera.CALENDARIO }},
+                                         {{ carrera.PUNTAJE_MINIMO }},
+                                         {{ carrera.CUPO }},
+                                         {{ carrera.ADMITIDOS }},
+                                         {{ carrera.ASPIRANTES }}"
+                                         SELECTED>
+                                         {{ carrera.CALENDARIO }} -
+                                         {{ carrera.CENTRO }} -
+                                         {{ carrera.CARRERA }}
+                        </option>
+                        {% endfor %}
+                    </select>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-default">Obtener predicción</button>
+        </div>
+    </form>
+    <p>{{ prediction_text }}</p>
+    <form method="POST" action="/">
+        <button type="submit" class="btn btn-secondary">Obtener nueva predicción</button>
+    </form>
+    <p>La aplicación funciona comparando los datos de las carreras tales como número de aspitantes, promedio mínimo,
+      cupo, así como el calendario según los datos publicados por la UDG en su página de estadísticas. Se entrenó un
+      modelo de clasificación de árbol de decisión usando los datos de los últimos diez años de las carreras ofertadas
+      por la UDG, y para estimar la predicción se utilizan datos de los últimos dos calendarios (2022 A y 2021 B) para 
+      determinar si la carrera elegida es considerada con altas probabilidades de ingreso o con bajas probabilidades.
+    </p>
+    <p>Esta aplicación no tiene ninguna afiliación oficial con la UDG y sus resultados, a pesar de contar con un alto
+      índice de confiabilidad, no garantizan el ingreso (o rechazo) a ninguna de las carreras ofertadas por la universidad.
+    </p>
+    <div class="footer">
+      © 2022 – Mario Morales
+    </div>
+
+  </body>
+</html>
