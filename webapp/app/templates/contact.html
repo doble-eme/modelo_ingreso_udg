@@ -1,8 +1,76 @@
-<html>
-    <head></head>
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Predicción Posibilidades de Ingreso UDG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .contact-links .fa {
+            padding: 15px;
+            font-size: 30px;
+            width: 30px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 50%;
+        }
 
-    <body>
-        There's nothing here yet. Put here a static file with contact info
-    </body>
+        .fa:hover {
+            opacity: 0.7;
+        }
 
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+        .fa-linkedin {
+            background: #007bb5;
+            color: white;
+        }
+
+        .fa-github {
+            background: #125688;
+            color: white;
+        }
+    </style>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="topnav" id="myTopnav">
+        <a href="/"><i class="fa fa-fw fa-home"></i> PredictUDG</a>
+        <a href="{{ url_for('contact') }}" class="active"><i class="fa fa-fw fa-envelope"></i> Contacto</a>
+        <a href="{{ url_for('about') }}"><i class="fa fa-solid fa-info"></i> Acerca de</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i></a>
+      </div>
+    </header>
+
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+
+    <div class="contact-links">
+      <h3>Contacto</h3>
+      <p>Para comentarios o mayor información, puedes encontrarme en estos canales:</p>
+        <a href="https://twitter.com/doble_eme" target="_blank" rel="noopener noreferrer" class="fa fa-twitter"></a>
+        <a href="https://www.linkedin.com/in/mario-morales-2780a176/" target="_blank" rel="noopener noreferrer" class="fa fa-linkedin"></a>
+        <a href="https://github.com/doble-eme" target="_blank" rel="noopener noreferrer" class="fa fa-github"></a>
+    </div>
+
+    <div class="footer">
+        © 2022 - Mario Morales
+    </div>
+  </body>
 </html>

@@ -1,8 +1,45 @@
-<html>
-    <head></head>
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Predicción Posibilidades de Ingreso UDG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
 
-    <body>
-        There's nothing here yet. Put here a static docs file
-    </body>
+  <body>
 
+    <header>
+      <div class="topnav" id="myTopnav">
+        <a href="/"><i class="fa fa-fw fa-home"></i> PredictUDG</a>
+        <a href="{{ url_for('contact') }}"><i class="fa fa-fw fa-envelope"></i> Contacto</a>
+        <a href="{{ url_for('about') }}" class="active"><i class="fa fa-solid fa-info"></i> Acerca de</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i></a>
+      </div>
+    </header>
+
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+
+    <div class="contact-links">
+        <h3>Acerca de este proyecto</h3>
+        <p>Este proyecto surgió como parte de mi trabajo para titulación en la Maestría en Informática Aplicada de ITESO.</p>
+        <p>Para conocer más acerca de cómo funciona y más detalles acerca del mismo, 
+            puedes visitar el repositorio de <a href="https://github.com/doble-eme/modelo_ingreso_udg" target="_blank" rel="noopener noreferrer">GitHub</a> donde se explica a detalle cada parte del proyecto y su funcionamiento.</p>
+    </div>
+
+    <div class="footer">
+        © 2022 - Mario Morales
+    </div>
+  </body>
 </html>

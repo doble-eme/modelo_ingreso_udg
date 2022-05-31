@@ -12,9 +12,9 @@
 
     <header>
       <div class="topnav" id="myTopnav">
-        <a href="./" class="active"> <i class="fa fa-fw fa-home"></i>PredictUDG</a>
-        <a href="{{ url_for('contact') }}"><i class="fa fa-fw fa-envelope"></i>Contact</a>
-        <a href="{{ url_for('about') }}"><i class="fa fa-solid fa-info"></i> About</a>
+        <a href="./" class="active"> <i class="fa fa-fw fa-home"></i> PredictUDG</a>
+        <a href="{{ url_for('contact') }}"><i class="fa fa-fw fa-envelope"></i> Contacto</a>
+        <a href="{{ url_for('about') }}"><i class="fa fa-solid fa-info"></i> Acerca de</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i></a>
       </div>
@@ -29,7 +29,7 @@
           x.className = "topnav";
         }
       }
-      </script>
+    </script>
 
     <h1>Predicción de Posibilidades de Ingreso a la UDG</h1>
     <form class="form-inline" method="POST" action="{{ url_for('select_value') }}">
