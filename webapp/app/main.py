@@ -59,5 +59,13 @@ def select_value():
     # rendering the predicted result on the page
     return render_template('index.html', prediction_text=result)
 
+@app.route('/about/')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact/')
+def contact():
+    return render_template('contact.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
