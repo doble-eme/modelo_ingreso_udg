@@ -38,13 +38,14 @@
                 <p> CALENDARIO (A=1, B=2) - CENTRO - CARRERA</p>
             <div class="input-group">
                     <select name="seleccion_carrera" class="selectpicker form-control">
+                        <option>-- Selecciona la carrera de interés -- </option>
                         {% for carrera in carreras %}
                         <option value = "{{ carrera.CALENDARIO }},
                                          {{ carrera.PUNTAJE_MINIMO }},
                                          {{ carrera.CUPO }},
                                          {{ carrera.ADMITIDOS }},
                                          {{ carrera.ASPIRANTES }}"
-                                         SELECTED>
+                                         >
                                          {{ carrera.CALENDARIO }} -
                                          {{ carrera.CENTRO }} -
                                          {{ carrera.CARRERA }}
